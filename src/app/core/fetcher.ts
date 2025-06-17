@@ -18,7 +18,7 @@ export class Fetcher {
   public GetPostData() {
     this._dataStore.Loading = true;
 
-    return this._httpClient.get<IPostResponse[]>(baseUrl).pipe(
+    return this._httpClient.get<IPostResponse[]>(`${baseUrl}posts`).pipe(
       shareReplay(),
       tap((response: IPostResponse[]) => {
         this._dataStore.Posts = response;
